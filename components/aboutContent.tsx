@@ -5,7 +5,7 @@ export default function AboutContent() {
         <>
             <div className="logo" style={{ position: "absolute", margin: 25, textAlign: "left" }}>About</div>
             <div style={{ position: "absolute", margin: 25, marginTop: 35, textAlign: "left" }}>
-                <h3 style={{ marginTop: 50 }}>Hi, I&apos;m Kelly, I'm a Senior Typescript Engineer.</h3>
+                <h3 style={{ marginTop: 50 }}>Hi, I&apos;m Kelly, I&apos;m a Senior Typescript Engineer.</h3>
                 <h4 style={{ fontWeight: 'bold' }}> Experience </h4>
                 <h5 style={{ fontWeight: 400 }}>&#9745; Several years&apos; working in tech companies, including a Skin Cancer Diagnostics AI company, an Autonomous Driving AI solution company, a Medications Adherence company, and an energy company.</h5>
                 <h5 style={{ fontWeight: 400 }}>&#9745; Experience doing Full Stack work and having sole/majority ownership over codebases and relevant architectural decisions </h5>
