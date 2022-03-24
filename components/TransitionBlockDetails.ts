@@ -26,7 +26,7 @@ const quadruplexBlock = new TransitionBlockDetails("Quadruplex", '#a8edea → #f
 const threeJsBlock = new TransitionBlockDetails("ThreeJs", '#f5f7fa → #c3cfe2', 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)', "ThreeJs")
 const cvGenBlock = new TransitionBlockDetails("CV Gen", '#e0c3fc → #8ec5fc', 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)', "CV Generator")
 
-const medAdherenceBlock = new TransitionBlockDetails("Medical Adherence", '#e0c3fc → #8ec5fc', 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)', "Medical Adherence")
+const medAdherenceBlock = new TransitionBlockDetails("Medical Adherence V1", '#e0c3fc → #8ec5fc', 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)', "Medical Adherence V1")
 const reportListBlock = new TransitionBlockDetails("Report List", '#e0c3fc → #8ec5fc', 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)', "Report List Gen")
 const musicianPortfolioBlock = new TransitionBlockDetails("Musician Portfolio", '#e0c3fc → #8ec5fc', 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)', "Musician Portfolio")
 const inspoBlock = new TransitionBlockDetails("Inspo & Sources", '#e0c3fc → #8ec5fc', 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)', "Inspo & Sources")

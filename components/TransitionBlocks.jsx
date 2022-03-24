@@ -8,6 +8,7 @@ import QuadruplexContent from './projects/quadruplex/quadruplexContext';
 import AboutContent from './aboutContent';
 import MusicianPortfolio from './projects/musicianPortfolio/musicianPortfolio';
 import Inspiration from './projects/inspiration/inspiration';
+import MedicalAdherence from './projects/medicalAdherence/medicalAdherence';
 
 export default function TransitionBlocks({ title }) {
     const [open, set] = useState(false);
@@ -16,7 +17,7 @@ export default function TransitionBlocks({ title }) {
     const [projectTitle, setProjectTitle] = useState("");
 
     const projectContents = { "Quadruplex": <QuadruplexContent />, "ThreeJs": <ThreeJsContent />, 
-    "Musician Portfolio": <MusicianPortfolio/>, "Inspo & Sources": <Inspiration/>
+    "Musician Portfolio": <MusicianPortfolio/>, "Inspo & Sources": <Inspiration/>, "Medical Adherence V1": <MedicalAdherence/>
 }
 
     const springRef = useRef()

@@ -28,7 +28,7 @@ const Global = createGlobalStyle`
   bottom: 0;
   user-select: none;
   font-size: 4vh;
-  font-family: monospace;
+  font-family: 'Pacifico', cursive;
   color: #fee;
   text-shadow: 0 -40px 20px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 5px 3px #000;
 }
