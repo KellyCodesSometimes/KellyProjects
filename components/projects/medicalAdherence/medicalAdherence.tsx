@@ -1,5 +1,5 @@
 import React from 'react'
-import video from '/public/musician_portfolio.gif'
+import video from '/public/pill.gif'
 import DescriptionTemplate from '../templates/descriptionTemplate'
 
 export default function MedicalAdherence() {
