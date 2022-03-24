@@ -5,7 +5,7 @@ interface Props {
     projectSummary: string;
     technicalStack: string[];
     contextItems: string[];
-    video: any
+    video?: any
 }
 
 export default function DescriptionTemplate({ projectSummary, technicalStack, contextItems, video }: Props) {
@@ -13,19 +13,23 @@ export default function DescriptionTemplate({ projectSummary, technicalStack, co
         <div style={{ display: "inline-flex" }}>
             <div>
                 <h2 style={{ padding: 0, margin: 0 }}>{projectSummary}</h2>
-                <h3>Technical Stack:</h3>
-                <ul>
-                    {technicalStack.map(stackItem => <li key={stackItem}>{stackItem}</li>)}
-                </ul>
+                {technicalStack.length > 0 &&
+                    <>
+                        <h3>Technical Stack:</h3>
+                        <ul>
+                            {technicalStack.map(stackItem => <li key={stackItem}>{stackItem}</li>)}
+                        </ul>
+                    </>
+                }
 
-                <h3>Context:</h3>
+                <h3>{technicalStack.length > 0 ? "Context:" : "Sources"}</h3>
                 <ul>
                     {contextItems.map(stackItem => <li key={stackItem}>{stackItem}</li>)}
                 </ul>
             </div>
-            <div style={{ position: "relative", height: "50vh", width: "100%", marginLeft: 100, marginTop: "5%", marginRight: 0 }}>
+            {video && <div style={{ position: "relative", height: "50vh", width: "100%", marginLeft: 100, marginTop: "5%", marginRight: 0 }}>
                 <Image alt={"Demo of project"} src={video} layout="intrinsic" />
-            </div>
+            </div>}
         </div>
     )
 }
