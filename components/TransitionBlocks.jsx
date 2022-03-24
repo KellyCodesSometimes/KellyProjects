@@ -6,6 +6,7 @@ import ProjectDialog from './projectDialog';
 import ThreeJsContent from './projects/threejs/threeJsContext';
 import QuadruplexContent from './projects/quadruplex/quadruplexContext';
 import AboutContent from './aboutContent';
+import MusicianPortfolio from './projects/musicianPortfolio/musicianPortfolio';
 
 export default function TransitionBlocks({ title }) {
     const [open, set] = useState(false);
@@ -13,7 +14,9 @@ export default function TransitionBlocks({ title }) {
     const [showProjectsText, setShowProjectsText] = useState(true);
     const [projectTitle, setProjectTitle] = useState("");
 
-    const projectContents = { "Quadruplex": <QuadruplexContent />, "ThreeJs": <ThreeJsContent /> }
+    const projectContents = { "Quadruplex": <QuadruplexContent />, "ThreeJs": <ThreeJsContent />, 
+    "Musician Portfolio": <MusicianPortfolio/>
+}
 
     const springRef = useRef()
     const { size, opacity, ...rest } = useSpring({
