@@ -15,16 +15,16 @@ export default function DescriptionTemplate({ projectSummary, technicalStack, co
                 <h2 style={{ padding: 0, margin: 0 }}>{projectSummary}</h2>
                 <h3>Technical Stack:</h3>
                 <ul>
-                    {technicalStack.map(stackItem => <li>{stackItem}</li>)}
+                    {technicalStack.map(stackItem => <li key={stackItem}>{stackItem}</li>)}
                 </ul>
 
                 <h3>Context:</h3>
                 <ul>
-                    {contextItems.map(stackItem => <li>{stackItem}</li>)}
+                    {contextItems.map(stackItem => <li key={stackItem}>{stackItem}</li>)}
                 </ul>
             </div>
             <div style={{ position: "relative", height: "50vh", width: "100%", marginLeft: 100, marginTop: "5%", marginRight: 0 }}>
-                <Image src={video} layout="intrinsic" />
+                <Image alt={"Demo of project"} src={video} layout="intrinsic" />
             </div>
         </div>
     )
