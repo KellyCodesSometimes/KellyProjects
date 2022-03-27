@@ -46,7 +46,28 @@ export default function Reports() {
             startDate: new Date("01/01/2009"),
             endDate: new Date("01/01/2016"),
             type: ReportType.ELECTRIC_VEHICLES,
-            endpoint: "/foodandnutrition/abc"
+            endpoint: "/elec_vehicles/abGGc"
+        },
+        {
+            name: "Test Report D",
+            startDate: new Date("01/01/2009"),
+            endDate: new Date("01/01/2016"),
+            type: ReportType.ELECTRIC_VEHICLES,
+            endpoint: "/elec_vehicles/abcDD"
+        },
+        {
+            name: "Test Report E",
+            startDate: new Date("01/01/2009"),
+            endDate: new Date("01/01/2016"),
+            type: ReportType.ELECTRIC_VEHICLES,
+            endpoint: "/elec_vehicles/abcE"
+        },
+        {
+            name: "Test Report F",
+            startDate: new Date("01/01/2009"),
+            endDate: new Date("01/01/2016"),
+            type: ReportType.ELECTRIC_VEHICLES,
+            endpoint: "/elec_vehicles/abcD"
         }
     ]
     const [reports, setReports] = useState<ReportInput[]>(mockReports);

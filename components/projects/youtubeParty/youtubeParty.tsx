@@ -1,5 +1,5 @@
 import React from 'react'
-import video from '/public/ytParty1.gif'
+import video from '/public/ytparty1.gif'
 import DescriptionTemplate from '../templates/descriptionTemplate'
 
 export default function YoutubeParty() {

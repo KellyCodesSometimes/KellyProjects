@@ -1,5 +1,5 @@
 import React from 'react'
-import video from '/public/cvGen.gif'
+import video from '/public/cvgen.gif'
 import DescriptionTemplate from '../templates/descriptionTemplate'
 
 export default function CVGenerator() {
