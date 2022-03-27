@@ -6,9 +6,19 @@ interface Props {
 }
 
 export const Printable = React.forwardRef(({ reports }: Props, ref) => {
-
+    const groupBy = (objectArray: ReportInput[], property: string) => {
+        return objectArray.reduce((acc: { [x: string]: any[]; }, obj: { [x: string]: any; }) => {
+            const key = obj[property];
+            if (!acc[key]) {
+                acc[key] = [];
+            }
+            // Add object to list for given key's value
+            acc[key].push(obj);
+            return acc;
+        }, {});
+    }
+    const flattened = Object.values(groupBy(reports, "type")).flat();
     return (
-
         <div className="printable">
             {ref &&
                 <div ref={ref as any} className="reports-div">
@@ -22,9 +32,9 @@ export const Printable = React.forwardRef(({ reports }: Props, ref) => {
                         </div>
                     </div>
                     <div className='list-container'>
-                        {reports.map((report, idx) =>
+                        {flattened.map((report, idx) =>
                             <div style={{ display: "inline-flex" }} className={`report-item-${idx % 2 == 0 ? 'even' : 'odd'}`}>
-                                <p>{report.name}</p>
+                                <p>{report.name}-{report.type}</p>
                                 <p style={{ float: "right" }}>{report.endpoint}</p>
                             </div>
                         )}
