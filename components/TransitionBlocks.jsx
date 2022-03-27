@@ -8,6 +8,7 @@ import AboutContent from './aboutContent';
 import MusicianPortfolio from './projects/musicianPortfolio/musicianPortfolio';
 import Inspiration from './projects/inspiration/inspiration';
 import MedicalAdherence from './projects/medicalAdherence/medicalAdherence';
+import Image from 'next/image'
 
 export default function TransitionBlocks({ title, childBlocks }) {
     const [open, set] = useState(false);
@@ -20,12 +21,14 @@ export default function TransitionBlocks({ title, childBlocks }) {
         "Musician Portfolio": <MusicianPortfolio />, "Inspo & Sources": <Inspiration />, "Medical Adherence V1": <MedicalAdherence />
     }
 
+    const lavender = '#E2D1F9'
+
     const springRef = useRef()
     const { size, opacity, ...rest } = useSpring({
         ref: springRef,
         config: config.stiff,
         from: { size: '20%', background: 'hotpink', marginRight: 5 },
-        to: { size: open ? '60%' : '20%', background: open ? 'white' : 'hotpink' }
+        to: { size: open ? '60%' : '20%', background: open ? 'white' : lavender }
     })
 
     const transRef = useRef()
@@ -44,14 +47,14 @@ export default function TransitionBlocks({ title, childBlocks }) {
     const handleItemClick = (e, item) => {
         if (item.content !== "Close") {
             e.stopPropagation();
-            setProjectTitle(item.content)
+            setProjectTitle(item.name)
             setDialogOpen(true);
         }
     }
     return (
         <>
             <Global />
-            <Container style={{ ...rest, width: size, height: size }} onClick={() => {
+            <Container key={title} style={{ ...rest, width: open ? "33%" : "20%", height: size }} onClick={() => {
                 set(open => !open)
                 setTimeout(function () {
                     setShowProjectsText(show => !show);
@@ -61,7 +64,11 @@ export default function TransitionBlocks({ title, childBlocks }) {
                 {childBlockTransitions.map(({ item, key, props }) => (
                     <Item key={key} onClick={(e) => handleItemClick(e, item)} style={{ ...props, background: item.css, display: title === "About" ? "inline-grid" : "inherit" }}>
                         <div style={{ display: "inline-grid" }}>
-                            <div className="logo" style={{ marginTop: 0 }}>{item.content}</div>
+                            <div className="logo" style={{ marginTop: 0 }}>
+                                {
+                                    typeof item.content === "string" ? item.content : <Image layout='fill' src={item.content}/>
+                                }
+                            </div>
                         </div>
                     </Item>
                 ))}

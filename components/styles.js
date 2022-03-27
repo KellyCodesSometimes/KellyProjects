@@ -4,6 +4,8 @@ import styled, { createGlobalStyle } from 'styled-components'
 const Global = createGlobalStyle`
   * {
     box-sizing: border-box;
+overflow: hidden;
+
   }
   h1, h2, h3, h4, p {
     font-family: "Playball", cursive; /* Google font for the header */
@@ -13,9 +15,8 @@ const Global = createGlobalStyle`
     padding: 0;
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
     user-select: none;
-    background: lightblue;
+    background: #317773;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,7 +31,7 @@ const Global = createGlobalStyle`
   font-size: 4vh;
   font-family: 'Pacifico', cursive;
   color: #fee;
-  text-shadow: 0 -40px 20px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 5px 3px #000;
+  text-shadow: 0 -40px 20px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #317773, 0 0 0.1em #ff4444, 0 3px 3px #000;
 }
 `
 
@@ -39,20 +40,19 @@ const Container = styled(animated.div)`
   align-items: center;
   justify-content: center;
   text-align: center;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(100px, 1fr));
-  grid-gap: 25px;
   padding: 25px;
   background: white;
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
   will-change: width, height;
 `
 
 const Item = styled(animated.div)`
+  margin-bottom: 20px;
   width: 100%;
-  height: 100%;
+  height: 50%;
   background: white;
   border-radius: 5px;
   will-change: transform, opacity;
