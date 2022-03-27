@@ -40,7 +40,7 @@ const Container = styled(animated.div)`
   justify-content: center;
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(2, minmax(100px, 1fr));
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
   grid-gap: 25px;
   padding: 25px;
   background: white;
