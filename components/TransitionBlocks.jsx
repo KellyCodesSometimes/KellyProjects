@@ -10,6 +10,7 @@ import Inspiration from './projects/inspiration/inspiration';
 import MedicalAdherence from './projects/medicalAdherence/medicalAdherence';
 import YoutubeParty from './projects/youtubeParty/youtubeParty';
 import CVGenerator from './projects/cvGenerator/cvGenerator'; 
+import Reports from './projects/reports/reports';
 import Image from 'next/image'
 
 export default function TransitionBlocks({ title, childBlocks }) {
@@ -21,7 +22,7 @@ export default function TransitionBlocks({ title, childBlocks }) {
     const projectContents = {
         "Quadruplex": <QuadruplexContent />, "ThreeJs": <ThreeJsContent />,
         "Musician Portfolio": <MusicianPortfolio />, "Inspo & Sources": <Inspiration />, "Medical Adherence V1": <MedicalAdherence />,
-        "Youtube Party": <YoutubeParty/>, "CV Gen": <CVGenerator/>
+        "Youtube Party": <YoutubeParty/>, "CV Gen": <CVGenerator/>, "Report List": <Reports/>
     }
 
     const lavender = '#E2D1F9'
@@ -31,7 +32,7 @@ export default function TransitionBlocks({ title, childBlocks }) {
         ref: springRef,
         config: config.stiff,
         from: { size: '20%', background: 'hotpink', marginRight: 5 },
-        to: { size: open ? title === "Projects" ? "100%" : '60%' : '20%', background: open ? 'white' : lavender }
+        to: { size: open ? title === "Demos of Projects" ? "100%" : '60%' : '20%', background: open ? 'white' : lavender }
     })
 
     const transRef = useRef()
@@ -55,11 +56,11 @@ export default function TransitionBlocks({ title, childBlocks }) {
         }
     }
 
-    const projectTabOpen = open && title === "Projects";
+    const projectTabOpen = open && title === "Demos of Projects";
     return (
         <>
             <Global />
-            <Container key={title} style={{ ...rest, width: projectTabOpen ? "90vw" : open ? "33%" : "20%", height: projectTabOpen ? "90vh" : size, position: projectTabOpen ? 'absolute' : 'relative', zIndex: projectTabOpen ? '1' : '0' }} onClick={() => {
+            <Container key={title} style={{ ...rest, width: projectTabOpen ? "95vw" : open ? "33%" : "20%", height: projectTabOpen ? "95vh" : size, position: projectTabOpen ? 'absolute' : 'relative', zIndex: projectTabOpen ? '1' : '0' }} onClick={() => {
                 set(open => !open)
                 setTimeout(function () {
                     setShowProjectsText(show => !show);

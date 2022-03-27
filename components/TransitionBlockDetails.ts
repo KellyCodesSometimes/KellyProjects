@@ -38,7 +38,6 @@ const threeJsBlock = new TransitionBlockDetails("ThreeJs", cube)
 const cvGenBlock = new TransitionBlockDetails("CV Gen", cv)
 
 const medAdherenceBlock = new TransitionBlockDetails("Medical Adherence V1", pill)
-const reportListBlock = new TransitionBlockDetails("Report List", doc)
 const musicianPortfolioBlock = new TransitionBlockDetails("Musician Portfolio", music)
 const youtubePartyBlock = new TransitionBlockDetails("Youtube Party", youtube)
 
@@ -51,4 +50,9 @@ const projectBlocks = [quadruplexBlock, threeJsBlock, cvGenBlock, medAdherenceBl
 
 const tutorialsBlocks: TransitionBlockDetails[] = []
 
-export { homepageBlocks, projectBlocks, tutorialsBlocks }
+const reportListBlock = new TransitionBlockDetails("Report List", music)
+
+const interactiveProjectBlocks = [reportListBlock]
+
+
+export { homepageBlocks, projectBlocks, tutorialsBlocks, interactiveProjectBlocks }

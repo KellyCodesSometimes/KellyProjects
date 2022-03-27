@@ -21,9 +21,7 @@ export default function ProjectDialog({ setDialogOpen, projectTitle, projectDesc
             <Dialog maxWidth={"lg"} fullWidth open={true} onClose={handleClose}>
                 <div className="logo" style={{ position: "absolute", margin: 25, textAlign: "left" }}>{projectTitle}</div>
                 <DialogContent style={{ marginTop: 90 }}>
-                    <DialogContentText>
                       {projectDescriptionAndVideo}
-                    </DialogContentText>
                 </DialogContent>
                 <DialogActions>
                     <Button variant="contained" style={{ background: "hotpink" }} onClick={handleClose}>Close</Button>

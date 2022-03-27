@@ -1,0 +1,103 @@
+import { LocalizationProvider, DatePicker } from '@mui/lab';
+import { Button, FormControl, InputLabel, MenuItem, Select, Table, TableCell, TableHead, TableRow, TextField } from '@mui/material'
+import React, { useState } from 'react'
+import ReportType, { ReportInput } from './models';
+import DateAdapter from '@mui/lab/AdapterDateFns';
+
+function DateHandler({ state, setStateAction }: any) {
+    return (
+        <LocalizationProvider dateAdapter={DateAdapter}>
+            <DatePicker
+                value={state}
+                onChange={(newValue) => {
+                    setStateAction(newValue);
+                }}
+                renderInput={(params) => <TextField {...params} />}
+            />
+        </LocalizationProvider>
+    )
+}
+
+
+export default function Reports() {
+    const [reports, setReports] = useState<ReportInput[]>([]);
+
+    // Report we're adding
+    const [reportType, setReportType] = useState<ReportType>(ReportType.ELECTRIC_VEHICLES);
+    const [reportName, setReportName] = useState<string>("");
+    const [reportStartDate, setReportStartDate] = useState<Date>(new Date());
+    const [reportEndDate, setReportEndDate] = useState<Date>(new Date());
+    const [endpoint, setEndpoint] = useState<string>("");
+
+    const handleAddReport = () => {
+        const newReport: ReportInput = {
+            name: reportName,
+            startDate: reportStartDate,
+            endDate: reportEndDate,
+            endpoint: endpoint,
+            type: reportType
+        }
+        setReports([...reports, newReport])
+        resetForm();
+    }
+
+    const resetForm = () => {
+        setReportType(ReportType.ELECTRIC_VEHICLES);
+        setReportName("");
+        setReportStartDate(new Date());
+        setReportEndDate(new Date());
+        setEndpoint("");
+    }
+
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    const headings = ["Name", "Start Date", "End Date", "Report Type", "Endpoint", "Action"]
+    return (
+        <div>
+            <Table>
+                <TableHead>
+                    <TableRow>
+                        {headings.map(heading => <TableCell>{heading}</TableCell>)}
+                    </TableRow>
+                </TableHead>
+                <TableRow>
+                    <TableCell><TextField value={reportName} onChange={(e) => setReportName(e.target.value)} size='small' /></TableCell>
+                    <TableCell>
+                        <DateHandler state={reportStartDate} setStateAction={setReportStartDate} />
+                    </TableCell>
+                    <TableCell>
+                        <DateHandler state={reportEndDate} setStateAction={setReportEndDate} />
+                    </TableCell>
+                    <TableCell>
+                        <FormControl fullWidth>
+                            <Select
+                                size='small'
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={reportType}
+                                label="Age"
+                                onChange={(e, child: any) => setReportType(child?.props?.value)}
+                            >
+                                {Object.values(ReportType).map(reportType => <MenuItem value={reportType}>{reportType}</MenuItem>)}
+                            </Select>
+                        </FormControl>
+                    </TableCell>
+                    <TableCell><TextField size='small' value={endpoint} onChange={(e) => setEndpoint(e.target.value)} /></TableCell>
+                    <TableCell><Button variant="contained" style={{ background: "hotpink", margin: 20 }} onClick={() => handleAddReport()}>+</Button></TableCell>
+                </TableRow>
+                {reports.map(report => (
+                    <>
+                        <TableRow>
+                            <TableCell>{report.name}</TableCell>
+                            <TableCell>{`${months[report.startDate.getMonth()]} ${report.startDate.getFullYear()}`}</TableCell>
+                            <TableCell>{`${months[report.endDate.getMonth()]}  ${report.endDate.getFullYear()}`}</TableCell>
+                            <TableCell>{report.type}</TableCell>
+                            <TableCell>{report.endpoint}</TableCell>
+                        </TableRow>
+                    </>
+                ))}
+                <Button variant="contained" style={{ background: "hotpink", margin: 20 }} onClick={() => { }}>Generate Report</Button>
+            </Table>
+        </div>
+    )
+}
