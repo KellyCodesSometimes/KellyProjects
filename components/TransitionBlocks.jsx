@@ -28,7 +28,7 @@ export default function TransitionBlocks({ title, childBlocks }) {
         ref: springRef,
         config: config.stiff,
         from: { size: '20%', background: 'hotpink', marginRight: 5 },
-        to: { size: open ? '60%' : '20%', background: open ? 'white' : lavender }
+        to: { size: open ? title === "Projects" ? "100%" : '60%' : '20%', background: open ? 'white' : lavender }
     })
 
     const transRef = useRef()
@@ -51,10 +51,12 @@ export default function TransitionBlocks({ title, childBlocks }) {
             setDialogOpen(true);
         }
     }
+
+    const projectTabOpen = open && title === "Projects";
     return (
         <>
             <Global />
-            <Container key={title} style={{ ...rest, width: open ? "33%" : "20%", height: size }} onClick={() => {
+            <Container key={title} style={{ ...rest, width: projectTabOpen ? "90vw" : open ? "33%" : "20%", height: projectTabOpen ? "90vh" : size, position: projectTabOpen ? 'absolute' : 'relative', zIndex: projectTabOpen ? '1' : '0' }} onClick={() => {
                 set(open => !open)
                 setTimeout(function () {
                     setShowProjectsText(show => !show);
@@ -66,7 +68,7 @@ export default function TransitionBlocks({ title, childBlocks }) {
                         <div style={{ display: "inline-grid" }}>
                             <div className="logo" style={{ marginTop: 0 }}>
                                 {
-                                    typeof item.content === "string" ? item.content : <Image layout='fill' src={item.content}/>
+                                    typeof item.content === "string" ? item.content : <Image layout='fill' src={item.content} />
                                 }
                             </div>
                         </div>

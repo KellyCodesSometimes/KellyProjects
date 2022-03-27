@@ -4,8 +4,6 @@ import styled, { createGlobalStyle } from 'styled-components'
 const Global = createGlobalStyle`
   * {
     box-sizing: border-box;
-overflow: hidden;
-
   }
   h1, h2, h3, h4, p {
     font-family: "Playball", cursive; /* Google font for the header */
@@ -15,6 +13,7 @@ overflow: hidden;
     padding: 0;
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
     user-select: none;
     background: #317773;
     display: flex;
@@ -40,17 +39,18 @@ const Container = styled(animated.div)`
   align-items: center;
   justify-content: center;
   text-align: center;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(35px, 1fr));
+  grid-gap: 10px;
   padding: 25px;
   background: white;
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.05);
-  overflow-y: auto;
   will-change: width, height;
 `
 
 const Item = styled(animated.div)`
-  margin-bottom: 20px;
   width: 100%;
   height: 50%;
   background: white;

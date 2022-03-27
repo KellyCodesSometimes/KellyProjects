@@ -15,8 +15,8 @@ export default function App() {
         <TransitionBlocks title={"Tutorials"} childBlocks={tutorialsBlocks} />
       </div>
       <div style={{ position: "absolute", bottom: "3vh", height: "7vh", alignContent: "center", alignItems: "center", display: "inline-flex", marginLeft: 15}}>
-        <a href={"https://github.com/K-A-Ball"}><Image alt="view my github" src={github}  layout="intrinsic"  /></a>
-        <a href="mailto:missk_a_ball@outlook.com"><Image alt="mail me" width={50} height={50} src={mail} layout="intrinsic"  /></a>
+        <a href={"https://github.com/K-A-Ball"}><Image alt="view my github" color="white" src={github}  layout="intrinsic"  /></a>
+        <a href="mailto:missk_a_ball@outlook.com"><Image alt="mail me" color='white' width={50} height={50} src={mail} layout="intrinsic"  /></a>
       </div>
     </>
   )
