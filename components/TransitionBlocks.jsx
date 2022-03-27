@@ -8,6 +8,8 @@ import AboutContent from './aboutContent';
 import MusicianPortfolio from './projects/musicianPortfolio/musicianPortfolio';
 import Inspiration from './projects/inspiration/inspiration';
 import MedicalAdherence from './projects/medicalAdherence/medicalAdherence';
+import YoutubeParty from './projects/youtubeParty/youtubeParty';
+import CVGenerator from './projects/cvGenerator/cvGenerator'; 
 import Image from 'next/image'
 
 export default function TransitionBlocks({ title, childBlocks }) {
@@ -18,7 +20,8 @@ export default function TransitionBlocks({ title, childBlocks }) {
 
     const projectContents = {
         "Quadruplex": <QuadruplexContent />, "ThreeJs": <ThreeJsContent />,
-        "Musician Portfolio": <MusicianPortfolio />, "Inspo & Sources": <Inspiration />, "Medical Adherence V1": <MedicalAdherence />
+        "Musician Portfolio": <MusicianPortfolio />, "Inspo & Sources": <Inspiration />, "Medical Adherence V1": <MedicalAdherence />,
+        "Youtube Party": <YoutubeParty/>, "CV Gen": <CVGenerator/>
     }
 
     const lavender = '#E2D1F9'
