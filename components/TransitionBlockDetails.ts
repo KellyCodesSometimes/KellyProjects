@@ -43,20 +43,13 @@ const musicianPortfolioBlock = new TransitionBlockDetails("Musician Portfolio", 
 const youtubePartyBlock = new TransitionBlockDetails("Youtube Party", youtube)
 
 const organiserBlock = new TransitionBlockDetails("Organiser", music)
-const mentalHealthBlock = new TransitionBlockDetails("Mental Health", music)
-const anotherBlock = new TransitionBlockDetails("Mental Heaalth", music)
-const bBlock = new TransitionBlockDetails("Mentaal Health", music)
-const cBlock = new TransitionBlockDetails("Mental Heaalth", music)
-const dBlock = new TransitionBlockDetails("Mental Heaaalth", music)
-const eBlock = new TransitionBlockDetails("Mental Heaalath", music)
 
 
 
 const inspoBlock = new TransitionBlockDetails("Inspo & Sources", "Inspo & Sources")
 const closeBlock = new TransitionBlockDetails("Close", "Close")
 
-const projectBlocks = [quadruplexBlock, threeJsBlock, cvGenBlock, medAdherenceBlock, reportListBlock, musicianPortfolioBlock, youtubePartyBlock, organiserBlock, mentalHealthBlock, 
-    anotherBlock, bBlock, cBlock, dBlock, eBlock, inspoBlock, closeBlock]
+const projectBlocks = [quadruplexBlock, threeJsBlock, cvGenBlock, medAdherenceBlock, reportListBlock, musicianPortfolioBlock, youtubePartyBlock, organiserBlock, inspoBlock, closeBlock]
 
 const tutorialsBlocks: TransitionBlockDetails[] = []
 
