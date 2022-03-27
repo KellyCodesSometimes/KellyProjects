@@ -64,11 +64,11 @@ export default function TransitionBlocks({ title, childBlocks }) {
             }}>
                 {showProjectsText && <div style={{ marginTop: 40 }} className="logo">{title}</div>}
                 {childBlockTransitions.map(({ item, key, props }) => (
-                    <Item key={key} onClick={(e) => handleItemClick(e, item)} style={{ ...props, background: item.css, display: title === "About" ? "inline-grid" : "inherit" }}>
+                    <Item key={key} onClick={(e) => handleItemClick(e, item)} style={{ ...props, background: item?.css || 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)', display: title === "About" ? "inline-grid" : "inherit" }}>
                         <div style={{ display: "inline-grid" }}>
                             <div className="logo" style={{ marginTop: 0 }}>
                                 {
-                                    typeof item.content === "string" ? item.content : <Image layout='fill' src={item.content} />
+                                    typeof item?.content === "string" || !item?.content ? item?.content : <Image layout='fill' src={item.content} />
                                 }
                             </div>
                         </div>

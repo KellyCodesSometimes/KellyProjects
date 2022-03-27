@@ -21,7 +21,7 @@ export default class TransitionBlockDetails {
     ) {
         this.name = name;
         this.description = description || '#a8edea → #fed6e3';
-        this.css = css || 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)';
+        this.css = css;
         this.height = 200;
         this.content = content;
     }
@@ -42,10 +42,21 @@ const reportListBlock = new TransitionBlockDetails("Report List", doc)
 const musicianPortfolioBlock = new TransitionBlockDetails("Musician Portfolio", music)
 const youtubePartyBlock = new TransitionBlockDetails("Youtube Party", youtube)
 
+const organiserBlock = new TransitionBlockDetails("Organiser", music)
+const mentalHealthBlock = new TransitionBlockDetails("Mental Health", music)
+const anotherBlock = new TransitionBlockDetails("Mental Heaalth", music)
+const bBlock = new TransitionBlockDetails("Mentaal Health", music)
+const cBlock = new TransitionBlockDetails("Mental Heaalth", music)
+const dBlock = new TransitionBlockDetails("Mental Heaaalth", music)
+const eBlock = new TransitionBlockDetails("Mental Heaalath", music)
+
+
+
 const inspoBlock = new TransitionBlockDetails("Inspo & Sources", "Inspo & Sources")
 const closeBlock = new TransitionBlockDetails("Close", "Close")
 
-const projectBlocks = [quadruplexBlock, threeJsBlock, cvGenBlock, medAdherenceBlock, reportListBlock, musicianPortfolioBlock, youtubePartyBlock, inspoBlock, closeBlock]
+const projectBlocks = [quadruplexBlock, threeJsBlock, cvGenBlock, medAdherenceBlock, reportListBlock, musicianPortfolioBlock, youtubePartyBlock, organiserBlock, mentalHealthBlock, 
+    anotherBlock, bBlock, cBlock, dBlock, eBlock, inspoBlock, closeBlock]
 
 const tutorialsBlocks: TransitionBlockDetails[] = []
 
