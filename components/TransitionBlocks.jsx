@@ -72,7 +72,7 @@ export default function TransitionBlocks({ title, childBlocks }) {
                         <div style={{ display: "inline-grid" }}>
                             <div className="logo" style={{ marginTop: 0 }}>
                                 {
-                                    typeof item?.content === "string" || !item?.content ? item?.content : <Image layout='fill' src={item.content} />
+                                    typeof item?.content === "string" || !item?.content ? item?.content : <Image alt="Project icon" layout='fill' src={item.content} />
                                 }
                             </div>
                         </div>

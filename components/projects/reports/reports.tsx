@@ -88,7 +88,7 @@ export default function Reports() {
             <Table>
                 <TableHead>
                     <TableRow>
-                        {headings.map(heading => <TableCell>{heading}</TableCell>)}
+                        {headings.map(heading => <TableCell key={heading}>{heading}</TableCell>)}
                     </TableRow>
                 </TableHead>
                 <TableRow>
@@ -109,7 +109,7 @@ export default function Reports() {
                                 label="Age"
                                 onChange={(e, child: any) => setReportType(child?.props?.value)}
                             >
-                                {Object.values(ReportType).map(reportType => <MenuItem value={reportType}>{reportType}</MenuItem>)}
+                                {Object.values(ReportType).map(reportType => <MenuItem key={reportType} value={reportType}>{reportType}</MenuItem>)}
                             </Select>
                         </FormControl>
                     </TableCell>

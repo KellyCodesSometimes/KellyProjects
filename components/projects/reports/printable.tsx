@@ -33,7 +33,7 @@ export const Printable = React.forwardRef(({ reports }: Props, ref) => {
                     </div>
                     <div className='list-container'>
                         {flattened.map((report, idx) =>
-                            <div style={{ display: "inline-flex" }} className={`report-item-${idx % 2 == 0 ? 'even' : 'odd'}`}>
+                            <div key={report.name} style={{ display: "inline-flex" }} className={`report-item-${idx % 2 == 0 ? 'even' : 'odd'}`}>
                                 <p>{report.name}-{report.type}</p>
                                 <p style={{ float: "right" }}>{report.endpoint}</p>
                             </div>
@@ -44,3 +44,5 @@ export const Printable = React.forwardRef(({ reports }: Props, ref) => {
         </div>
     );
 });
+
+Printable.displayName = "Printable";
