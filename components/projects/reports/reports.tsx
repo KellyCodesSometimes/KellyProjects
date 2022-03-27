@@ -1,8 +1,10 @@
 import { LocalizationProvider, DatePicker } from '@mui/lab';
 import { Button, FormControl, InputLabel, MenuItem, Select, Table, TableCell, TableHead, TableRow, TextField } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import ReportType, { ReportInput } from './models';
 import DateAdapter from '@mui/lab/AdapterDateFns';
+import { useReactToPrint } from 'react-to-print';
+import { Printable } from './printable';
 
 function DateHandler({ state, setStateAction }: any) {
     return (
@@ -20,7 +22,34 @@ function DateHandler({ state, setStateAction }: any) {
 
 
 export default function Reports() {
-    const [reports, setReports] = useState<ReportInput[]>([]);
+    const componentRef = useRef(null);
+    const handlePrint = useReactToPrint({
+        content: () => componentRef?.current,
+    });
+    const mockReports: ReportInput[] = [
+        {
+            name: "Test Report A",
+            startDate: new Date("01/01/2002"),
+            endDate: new Date("01/01/2006"),
+            type: ReportType.FOOD_AND_NUTRITION,
+            endpoint: "/foodandnutrition/abc"
+        },
+        {
+            name: "Test Report B",
+            startDate: new Date("01/01/2002"),
+            endDate: new Date("01/01/2007"),
+            type: ReportType.FOOD_AND_NUTRITION,
+            endpoint: "/foodandnutrition/abc"
+        },
+        {
+            name: "Test Report C",
+            startDate: new Date("01/01/2009"),
+            endDate: new Date("01/01/2016"),
+            type: ReportType.ELECTRIC_VEHICLES,
+            endpoint: "/foodandnutrition/abc"
+        }
+    ]
+    const [reports, setReports] = useState<ReportInput[]>(mockReports);
 
     // Report we're adding
     const [reportType, setReportType] = useState<ReportType>(ReportType.ELECTRIC_VEHICLES);
@@ -49,11 +78,13 @@ export default function Reports() {
         setEndpoint("");
     }
 
+
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     const headings = ["Name", "Start Date", "End Date", "Report Type", "Endpoint", "Action"]
     return (
         <div>
+            <Printable ref={componentRef} reports={reports} />
             <Table>
                 <TableHead>
                     <TableRow>
@@ -96,7 +127,7 @@ export default function Reports() {
                         </TableRow>
                     </>
                 ))}
-                <Button variant="contained" style={{ background: "hotpink", margin: 20 }} onClick={() => { }}>Generate Report</Button>
+                <Button variant="contained" style={{ background: "hotpink", margin: 20 }} onClick={handlePrint}>Generate Report</Button>
             </Table>
         </div>
     )
